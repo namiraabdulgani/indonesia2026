@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yogyakarta Family Itinerary · Sep 21–24, 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dim: rgba(201,168,76,0.15);
+    --cream: #f5f0e8;
+    --ink: #1a1610;
+    --warm-mid: #8b6f47;
+    --batik-red: #8b2e2e;
+    --accent-green: #3d5a3e;
+    --blue-soft: #4a7a9b;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--ink);
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 120%;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse at 15% 40%, rgba(201,168,76,0.07) 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 15%, rgba(139,46,46,0.05) 0%, transparent 50%),
+      repeating-linear-gradient(45deg, transparent, transparent 60px, rgba(201,168,76,0.015) 60px, rgba(201,168,76,0.015) 61px),
+      repeating-linear-gradient(-45deg, transparent, transparent 60px, rgba(201,168,76,0.015) 60px, rgba(201,168,76,0.015) 61px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 64px 32px 100px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    text-align: center;
+    margin-bottom: 72px;
+    animation: fadeUp 0.9s ease both;
+  }
+
+  .header-kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+
+  .header h1 {
+    font-size: clamp(52px, 9vw, 88px);
+    font-weight: 300;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+  }
+
+  .header h1 em { font-style: italic; color: var(--gold-light); }
+
+  .ornament {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: center;
+    margin: 22px 0;
+  }
+  .ornament-line { flex: 1; max-width: 80px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold)); }
+  .ornament-line.r { background: linear-gradient(90deg, var(--gold), transparent); }
+  .ornament-diamond { color: var(--gold); font-size: 10px; opacity: 0.7; }
+
+  .header-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--warm-mid);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .pill {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border: 1px solid rgba(201,168,76,0.28);
+    border-radius: 20px;
+    color: var(--gold);
+    background: rgba(201,168,76,0.05);
+  }
+
+  /* ── SECTION LABELS ── */
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(201,168,76,0.12);
+  }
+
+  /* ── DAY CARDS ── */
+  .day {
+    margin-bottom: 56px;
+    animation: fadeUp 0.7s ease both;
+  }
+  .day:nth-child(1) { animation-delay: 0.05s; }
+  .day:nth-child(2) { animation-delay: 0.12s; }
+  .day:nth-child(3) { animation-delay: 0.19s; }
+  .day:nth-child(4) { animation-delay: 0.26s; }
+
+  .day-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(201,168,76,0.18);
+  }
+
+  .day-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  .day-title {
+    font-size: 30px;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    flex: 1;
+    line-height: 1.15;
+  }
+
+  .day-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--warm-mid);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline { display: flex; flex-direction: column; }
+
+  .block {
+    display: grid;
+    grid-template-columns: 56px 20px 1fr;
+    gap: 0 16px;
+  }
+
+  .block-time {
+    padding-top: 15px;
+    text-align: right;
+  }
+  .block-time span {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    color: var(--warm-mid);
+    letter-spacing: 0.04em;
+    display: block;
+  }
+
+  .block-axis {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+    margin-top: 20px;
+    z-index: 2;
+  }
+  .dot.red { background: var(--batik-red); }
+  .dot.green { background: var(--accent-green); }
+  .dot.blue { background: var(--blue-soft); }
+  .dot.hollow { background: transparent; border: 1.5px solid var(--warm-mid); }
+
+  .line {
+    width: 1px;
+    flex: 1;
+    min-height: 16px;
+    background: linear-gradient(to bottom, rgba(201,168,76,0.25), rgba(201,168,76,0.04));
+  }
+
+  .block-content {
+    padding: 10px 0 20px;
+  }
+
+  .block-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .tag-gold { color: var(--gold); }
+  .tag-red { color: #b05050; }
+  .tag-green { color: #7aaa7a; }
+  .tag-blue { color: #7aabcc; }
+  .tag-warm { color: var(--warm-mid); }
+  .tag-food { color: #c4935a; }
+
+  .block-title {
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .block-desc {
+    font-size: 15px;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(245,240,232,0.6);
+    line-height: 1.65;
+  }
+
+  .chips {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .chip {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    padding: 4px 10px;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.04);
+    color: rgba(245,240,232,0.5);
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .rest-box {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.055);
+    border-radius: 5px;
+    padding: 11px 15px 11px;
+    margin-bottom: 20px;
+  }
+
+  /* ── CHECKLIST ── */
+  .checklist-section {
+    margin-bottom: 56px;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+
+  .check-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 28px;
+  }
+
+  @media (max-width: 580px) {
+    .check-grid { grid-template-columns: 1fr; }
+    .budget-grid { grid-template-columns: 1fr !important; }
+    .day-title { font-size: 21px; }
+  }
+
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .check-box {
+    width: 14px;
+    height: 14px;
+    border: 1px solid rgba(201,168,76,0.35);
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    background: rgba(201,168,76,0.04);
+  }
+
+  .check-text { flex: 1; }
+  .check-title {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 2px;
+  }
+  .check-note {
+    font-size: 12.5px;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(245,240,232,0.45);
+    line-height: 1.5;
+  }
+  .check-priority {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: var(--batik-red);
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+
+  /* ── BUDGET ── */
+  .budget-section {
+    margin-bottom: 56px;
+    animation: fadeUp 0.7s 0.35s ease both;
+  }
+
+  .budget-intro {
+    font-size: 14px;
+    font-style: italic;
+    color: rgba(245,240,232,0.5);
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+
+  .budget-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+
+  .budget-card {
+    border: 1px solid rgba(201,168,76,0.18);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .budget-card-header {
+    background: rgba(201,168,76,0.08);
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(201,168,76,0.12);
+  }
+
+  .budget-card-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .budget-card-sub {
+    font-size: 13px;
+    font-style: italic;
+    color: rgba(245,240,232,0.45);
+  }
+
+  .budget-rows { padding: 8px 0; }
+
+  .budget-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 9px 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .budget-row:last-child { border-bottom: none; }
+
+  .budget-row-label {
+    font-size: 14px;
+    color: rgba(245,240,232,0.7);
+    flex: 1;
+    padding-right: 12px;
+  }
+
+  .budget-row-label small {
+    display: block;
+    font-size: 11.5px;
+    font-style: italic;
+    color: rgba(245,240,232,0.35);
+    margin-top: 1px;
+  }
+
+  .budget-row-amount {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--cream);
+    flex-shrink: 0;
+    text-align: right;
+  }
+
+  .budget-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 18px;
+    background: rgba(201,168,76,0.07);
+    border-top: 1px solid rgba(201,168,76,0.2);
+  }
+
+  .budget-total-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .budget-total-amount {
+    font-family: 'DM Mono', monospace;
+    font-size: 18px;
+    color: var(--gold-light);
+    font-weight: 500;
+  }
+
+  .budget-note {
+    font-size: 13px;
+    font-style: italic;
+    color: rgba(245,240,232,0.38);
+    line-height: 1.7;
+    padding: 16px;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 4px;
+    background: rgba(255,255,255,0.01);
+  }
+
+  .budget-note strong {
+    color: rgba(245,240,232,0.6);
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    margin-top: 64px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(201,168,76,0.08);
+    animation: fadeUp 0.7s 0.5s ease both;
+  }
+
+  .footer-orn { font-size: 18px; color: var(--gold); opacity: 0.35; letter-spacing: 0.6em; margin-bottom: 12px; }
+  .footer-text { font-family: 'DM Mono', monospace; font-size: 8.5px; letter-spacing: 0.22em; color: var(--warm-mid); text-transform: uppercase; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .day-gap { width: 36px; height: 1px; background: rgba(201,168,76,0.1); margin: 0 0 56px 72px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-kicker">Family Travel · Itinerary</div>
+    <h1>Yogya<em>karta</em></h1>
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-diamond">◆</div>
+      <div class="ornament-line r"></div>
+    </div>
+    <div class="header-meta">21 – 24 September 2026 · Garrya Bianti</div>
+    <div class="pills">
+      <span class="pill">2 Adults</span>
+      <span class="pill">2 Elderly</span>
+      <span class="pill">Toddler · 3yo</span>
+      <span class="pill">Infant · 1yo</span>
+      <span class="pill">Innova Zenix</span>
+    </div>
+  </header>
+
+  <!-- ITINERARY -->
+  <div class="section-label">Itinerary</div>
+
+  <!-- DAY 1 -->
+  <div class="day">
+    <div class="day-header">
+      <div class="day-num">Day 01</div>
+      <div class="day-title">Arrival</div>
+      <div class="day-date">Mon · Sep 21</div>
+    </div>
+    <div class="timeline">
+
+      <div class="block">
+        <div class="block-time"><span>13:00</span></div>
+        <div class="block-axis"><div class="dot red"></div><div class="line"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-blue">Transit</div>
+          <div class="block-title">Land at YIA · Meet Private Driver</div>
+          <div class="block-desc">Look for signage with your name. Driver has the Innova Zenix loaded and ready — no taxi haggling with infant and toddler in tow.</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-time"><span>15:00</span></div>
+        <div class="block-axis"><div class="dot hollow"></div><div class="line"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-warm">Check-in</div>
+          <div class="block-title">Garrya Bianti · Settle In</div>
+          <div class="block-desc">Pool, rice field views, infant cot already set up. Decompress — this is the only agenda.</div>
+          <div class="chips">
+            <span class="chip">🛏 Confirm infant cot on arrival</span>
+            <span class="chip">🏊 Infinity pool</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-time"><span>19:00</span></div>
+        <div class="block-axis"><div class="dot"></div><div class="line" style="min-height:0;height:0;"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-food">Dinner</div>
+          <div class="block-title">Refresh Restaurant · Garrya Bianti</div>
+          <div class="block-desc">Indonesian and Asian, locally sourced. Stay in tonight — early bedtime for the little ones.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="day-gap"></div>
+
+  <!-- DAY 2 -->
+  <div class="day">
+    <div class="day-header">
+      <div class="day-num">Day 02</div>
+      <div class="day-title">Borobudur</div>
+      <div class="day-date">Tue · Sep 22</div>
+    </div>
+    <div class="timeline">
+
+      <div class="block">
+        <div class="block-time"><span>07:00</span></div>
+        <div class="block-axis"><div class="dot red"></div><div class="line"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-blue">Depart</div>
+          <div class="block-title">Drive to Borobudur · ~50 min</div>
+          <div class="block-desc">Early start beats the heat. Temple opens 6:30am; arriving by 8am puts you ahead of tour groups.</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-time"><span>08:00</span></div>
+        <div class="block-axis"><div class="dot red"></div><div class="line"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-gold">★ Borobudur Temple</div>
+          <div class="block-title">Temple Structure Climb · Pre-booked Tickets</div>
+          <div class="block-desc">World's largest Buddhist temple — 9 terraces of relief carvings leading to the crown stupas. Use the electric buggy service at the entrance so the elderly don't walk the grounds unnecessarily. Infant in carrier for the climb; stroller at base. A licensed guide is worth the IDR 100–150K/hr to bring the Mahabharata panels alive.</div>
+          <div class="chips">
+            <span class="chip">🎟 Pre-booked online · mandatory</span>
+            <span class="chip">👟 Upanat sandals provided</span>
+            <span class="chip">👘 Shoulders + knees covered</span>
+            <span class="chip">🚌 Use buggy service at entrance</span>
+            <span class="chip">☀ Very hot by 10am — go early</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-time"><span>11:00</span></div>
+        <div class="block-axis"><div class="dot"></div><div class="line"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-food">Lunch</div>
+          <div class="block-title">Truntum Gasblock Borobudur</div>
+          <div class="block-desc">Open-air restaurant surrounded by emerald rice fields and Menoreh Hills — one of the most scenic lunch spots near the temple. Indonesian and modern menu, great fresh juices. Short walk from parking. Reserve ahead for groups.</div>
+          <div class="chips">
+            <span class="chip">🌾 Rice field + hill views</span>
+            <span class="chip">📞 Reserve for group of 6</span>
+            <span class="chip">🥤 Fresh juices · try klepon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-time"><span>13:00</span></div>
+        <div class="block-axis"><div class="dot hollow"></div><div class="line"></div></div>
+        <div class="block-content rest-box">
+          <div class="block-tag tag-warm">Work Block</div>
+          <div class="block-title">Return to Garrya Bianti · Free Afternoon</div>
+          <div class="block-desc">Back by 1pm. Nap time for little ones, pool for the toddler, spa option for elderly. Full work window until 5:30pm.</div>
+          <div class="chips"><span class="chip">💆 Garrya Bianti spa</span><span class="chip">💻 Work from villa</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="day-gap"></div>
+
+  <!-- DAY 3 -->
+  <div class="day">
+    <div class="day-header">
+      <div class="day-num">Day 03</div>
+      <div class="day-title">Culture, Shopping & Prambanan</div>
+      <div class="day-date">Wed · Sep 23</div>
+    </div>
+    <div class="timeline">
+
+      <div class="block">
+        <div class="block-time"><span>09:30</span></div>
+        <div class="block-axis"><div class="dot red"></div><div class="line"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-red">★ Cultural Show</div>
+          <div class="block-title">Keraton Yogyakarta · Wayang Golek</div>
+          <div class="block-desc">Wednesday's show is Wayang Golek (Menak Puppet) at 9:30am — arrive by 9:00 to settle the group. The shaded pavilions are ideal for elderly. Pram manageable in the outer courtyard. Infant can nap in carrier through the performance. Allow 1.5 hrs including the museum galleries.</div>
+          <div class="chips">
+            <span class="chip">🎭 Wayang Golek · Wed 9:30am</span>
+            <span class="chip">🏛 Opens 8:30am</span>
+            <span class="chip">IDR 25K adult · IDR 20K child</span>
+            <span class="chip">~35 min from hotel</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-time"><span>10:45</span></div>
+        <div class="block-axis"><div class="dot green"></div><div class="line"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-green">Shopping</div>
+          <div class="block-title">Museum Sonobudoyo · Wayang & Art</div>
+          <div class="block-desc">Short walk from Keraton on the same square. The finest collection of Wayang Kulit puppets, traditional masks, and batik in Yogyakarta — and a shop where you can buy authenticated pieces. Watch artisans making puppets from buffalo hide before you choose. Best place in the city for meaningful art to bring home.</div>
+          <div class="chips">
+            <span class="chip">🎭 Authentic wayang kulit shop</span>
+            <span class="chip">🎨 Masks · batik · art</span>
+            <span class="chip">👁 Watch artisans at work</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-time"><span>12:00</span></div>
+        <div class="block-axis"><div class="dot"></div><div class="line"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-food">Lunch</div>
+          <div class="block-title">Jalan Wijilan · Gudeg Bu Rini or Bu Lies</div>
+          <div class="block-desc">Two-minute walk from Keraton into Jogja's famous gudeg lane — both Bu Rini and Bu Lies are consistently praised for cleanliness, proper sit-down setting, and gudeg that isn't too sweet. Safe for sensitive stomachs. Young jackfruit stew with rice, egg, krecek, and opor ayam — Jogja's defining dish.</div>
+          <div class="chips">
+            <span class="chip">✅ Bule-belly safe · clean kitchen</span>
+            <span class="chip">🍚 Gudeg · Jogja's signature</span>
+            <span class="chip">👶 Mild & sweet — toddler-friendly</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-time"><span>13:00</span></div>
+        <div class="block-axis"><div class="dot"></div><div class="line"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-food">Coffee</div>
+          <div class="block-title">Kopi Pakpos Nol Km · Rest Break</div>
+          <div class="block-desc">Right at Zero Kilometer Point — vintage Dutch-colonial aesthetic, great coffee, light snacks. Perfect pause before shopping while the infant feeds and the toddler resets. Rated 4.6 and very casual.</div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-time"><span>13:30</span></div>
+        <div class="block-axis"><div class="dot green"></div><div class="line"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-green">Shopping</div>
+          <div class="block-title">Hamzah Batik · Beringharjo Market</div>
+          <div class="block-desc">Father-in-law relaxes in the AC van while the rest of the group shops. Hamzah Batik is air-conditioned with fixed prices — ideal for buying batik without haggling. For the market experience, Beringharjo's upper floors have the best batik selection at negotiable prices. Ask vendors: tulis (hand-drawn) vs cap (stamped).</div>
+          <div class="chips">
+            <span class="chip">🛍 Hamzah: AC · fixed price · quality cert</span>
+            <span class="chip">🖌 Beringharjo: tulis vs cap batik</span>
+            <span class="chip">💵 Cash only in market</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-time"><span>14:30</span></div>
+        <div class="block-axis"><div class="dot hollow"></div><div class="line"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-warm">Optional</div>
+          <div class="block-title">Kota Gede · Silver District</div>
+          <div class="block-desc">If energy and time allow — Jl. Kemasan is lined with silver workshops. Tom's Silver and HS Silver have fixed prices and purity certificates. Watch artisans hand-beat silver into wayang figurines, bowls, and jewellery. Skip if the group is flagging — Prambanan is the priority.</div>
+          <div class="chips">
+            <span class="chip">⏱ Allow 45 min max</span>
+            <span class="chip">💍 Tom's Silver · HS Silver</span>
+            <span class="chip">✅ Skip if group is tired</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-time"><span>15:15</span></div>
+        <div class="block-axis"><div class="dot red"></div><div class="line"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-gold">★ Prambanan Temple</div>
+          <div class="block-title">Prambanan · Late Afternoon Visit</div>
+          <div class="block-desc">Indonesia's largest Hindu temple complex — three towering spires of Brahma, Vishnu, and Shiva. Afternoon is cooler and less crowded than morning. Outer grounds are flat and stroller-friendly. Use the buggy service so the elderly don't have to walk the full perimeter. Hire a guide (IDR 100–150K/hr) — the Ramayana mythology is spectacular.</div>
+          <div class="chips">
+            <span class="chip">IDR 400K adult · IDR 225K child (3yo)</span>
+            <span class="chip">🚌 Buggy service available</span>
+            <span class="chip">🧳 Stroller-friendly outer grounds</span>
+            <span class="chip">☀ Cooler + quieter in afternoon</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-time"><span>17:30</span></div>
+        <div class="block-axis"><div class="dot"></div><div class="line" style="min-height:0;height:0;"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-food">★ Sunset Dinner</div>
+          <div class="block-title">Abhayagiri · Sumberwatu Heritage Resort</div>
+          <div class="block-desc">5-minute drive uphill from Prambanan. Perched on a hill with panoramic views of the temple spires and Mount Merapi — Prambanan at golden hour from above. Indonesian and international menu, elegant outdoor seating. Reserve a family-friendly table in advance. Open until 9pm Wed–Thu.</div>
+          <div class="chips">
+            <span class="chip">🌅 Sunset over Prambanan + Merapi</span>
+            <span class="chip">📞 Reserve ahead · ask for view table</span>
+            <span class="chip">🕐 Open Mon–Thu until 21:00</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="day-gap"></div>
+
+  <!-- DAY 4 -->
+  <div class="day">
+    <div class="day-header">
+      <div class="day-num">Day 04</div>
+      <div class="day-title">Departure</div>
+      <div class="day-date">Thu · Sep 24</div>
+    </div>
+    <div class="timeline">
+
+      <div class="block">
+        <div class="block-time"><span>Morning</span></div>
+        <div class="block-axis"><div class="dot hollow"></div><div class="line"></div></div>
+        <div class="block-content rest-box">
+          <div class="block-tag tag-warm">Slow Morning</div>
+          <div class="block-title">Breakfast · Pool · Final Work Wrap</div>
+          <div class="block-desc">Refresh Restaurant for a long, unhurried breakfast. Pool time for the toddler. Last work session. Settle hotel bill the night before if possible.</div>
+          <div class="chips"><span class="chip">💳 Settle bill night before</span></div>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-time"><span>11:00</span></div>
+        <div class="block-axis"><div class="dot red"></div><div class="line"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-blue">Depart</div>
+          <div class="block-title">Drive to YIA Airport · ~1.5 hrs</div>
+          <div class="block-desc">Leave no later than 11:00am. Arriving at YIA by 12:30 gives 70 minutes before departure — workable with priority/family check-in for infant. All luggage already in van from morning load-out.</div>
+          <div class="chips">
+            <span class="chip">✈ Depart YIA 13:40</span>
+            <span class="chip">⏰ At airport by 12:30</span>
+            <span class="chip">🛄 Request priority check-in · infant</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="checklist-section">
+    <div class="section-label" style="margin-top:8px;">Reservations & Bookings Checklist</div>
+    <div class="check-grid">
+
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-text">
+          <div class="check-priority">High Priority</div>
+          <div class="check-title">Borobudur Tickets</div>
+          <div class="check-note">Book online at borobudurpark.com — Temple Structure climb. Capped at 1,200/day. Book at least 1 month ahead.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-text">
+          <div class="check-title">Private Van · Innova Zenix</div>
+          <div class="check-note">4 full days. Confirm child seat availability. Book through Garrya Bianti or a trusted Jogja driver service.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-text">
+          <div class="check-title">Abhayagiri Dinner</div>
+          <div class="check-note">Call or WhatsApp to reserve. Ask for a view table, family-friendly seating. Sep 23 evening.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-text">
+          <div class="check-title">Prambanan Tickets</div>
+          <div class="check-note">Book online 1–2 weeks ahead. No combo ticket with Borobudur since 2025 — separate purchase required.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-text">
+          <div class="check-title">Truntum Gasblock · Lunch</div>
+          <div class="check-note">Reserve for group of 6. Sep 22. Short walk from parking — confirm accessibility for elderly.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-text">
+          <div class="check-title">Garrya Bianti · Infant Cot</div>
+          <div class="check-note">Confirm crib/cot request on booking. Hotel WhatsApp concierge is responsive — use it throughout the stay.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-text">
+          <div class="check-title">Keraton Schedule Check</div>
+          <div class="check-note">Verify Wayang Golek is running Sep 23 — check kratonjogja.id or visitingjogja.jogjaprov.go.id closer to date.</div>
+        </div>
+      </div>
+
+      <div class="check-item">
+        <div class="check-box"></div>
+        <div class="check-text">
+          <div class="check-title">Cash for Markets</div>
+          <div class="check-note">Withdraw IDR before heading to Beringharjo. ATMs on Malioboro accept foreign cards. Markets are cash-only.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BUDGET -->
+  <div class="budget-section">
+    <div class="section-label">Estimated Budget</div>
+    <p class="budget-intro">All prices in USD. Approximate estimates only — exchange rate ~IDR 16,000/USD. Excludes international flights and Garrya Bianti accommodation (book directly). Elderly ticket discounts applied where applicable; 1yo is free entry everywhere; 3yo charged at child rate.</p>
+
+    <div class="budget-grid">
+
+      <!-- YOUR FAMILY -->
+      <div class="budget-card">
+        <div class="budget-card-header">
+          <div class="budget-card-title">Your Family</div>
+          <div class="budget-card-sub">2 adults · 3yo · 1yo</div>
+        </div>
+        <div class="budget-rows">
+          <div class="budget-row">
+            <div class="budget-row-label">Private Van · 4 days<small>IDR 1,050,000/day · 2 carseats incl. · split 50/50</small></div>
+            <div class="budget-row-amount">~$132</div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-row-label">Borobudur Tickets<small>2 adults × $28 · 3yo × $14 · 1yo free</small></div>
+            <div class="budget-row-amount">~$70</div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-row-label">Prambanan Tickets<small>2 adults × $25 · 3yo × $14 · 1yo free</small></div>
+            <div class="budget-row-amount">~$64</div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-row-label">Keraton Entry<small>2 adults + 3yo</small></div>
+            <div class="budget-row-amount">~$4</div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-row-label">Sonobudoyo Museum<small>Entry + shop purchases est.</small></div>
+            <div class="budget-row-amount">~$30</div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-row-label">Temple Guides (both)<small>2 guides × ~IDR 300K total</small></div>
+            <div class="budget-row-amount">~$38</div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-row-label">Meals · 4 days<small>Truntum, Gudeg, Kopi Pakpos, Abhayagiri, hotel</small></div>
+            <div class="budget-row-amount">~$180</div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-row-label">Shopping · Batik & crafts<small>Hamzah, Beringharjo est.</small></div>
+            <div class="budget-row-amount">~$100</div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-row-label">Silver · Kota Gede (optional)<small>Est. if you go</small></div>
+            <div class="budget-row-amount">~$60</div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-row-label">Buggy services + misc<small>Both temples, tips, incidentals</small></div>
+            <div class="budget-row-amount">~$30</div>
+          </div>
+        </div>
+        <div class="budget-total-row">
+          <div class="budget-total-label">Estimated Total</div>
+          <div class="budget-total-amount">~$708</div>
+        </div>
+      </div>
+
+      <!-- IN-LAWS -->
+      <div class="budget-card">
+        <div class="budget-card-header">
+          <div class="budget-card-title">In-Laws</div>
+          <div class="budget-card-sub">2 elderly · sharing van</div>
+        </div>
+        <div class="budget-rows">
+          <div class="budget-row">
+            <div class="budget-row-label">Private Van · 4 days<small>IDR 1,050,000/day · split 50/50 with your family</small></div>
+            <div class="budget-row-amount">~$131</div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-row-label">Borobudur Tickets<small>2 elderly × $28 (no senior discount for foreigners)</small></div>
+            <div class="budget-row-amount">~$56</div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-row-label">Prambanan Tickets<small>2 elderly × $25</small></div>
+            <div class="budget-row-amount">~$50</div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-row-label">Keraton Entry<small>2 elderly</small></div>
+            <div class="budget-row-amount">~$3</div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-row-label">Sonobudoyo Museum<small>Entry + purchases est.</small></div>
+            <div class="budget-row-amount">~$20</div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-row-label">Temple Guides<small>Shared guides — no extra cost</small></div>
+            <div class="budget-row-amount">$0</div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-row-label">Meals · 4 days<small>Shared group tables est. per 2 pax</small></div>
+            <div class="budget-row-amount">~$90</div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-row-label">Shopping · personal est.<small>Batik, crafts, silver</small></div>
+            <div class="budget-row-amount">~$80</div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-row-label">Silver · Kota Gede (optional)<small>If they join</small></div>
+            <div class="budget-row-amount">~$40</div>
+          </div>
+          <div class="budget-row">
+            <div class="budget-row-label">Buggy services + misc<small>Both temples, tips, incidentals</small></div>
+            <div class="budget-row-amount">~$20</div>
+          </div>
+        </div>
+        <div class="budget-total-row">
+          <div class="budget-total-label">Estimated Total</div>
+          <div class="budget-total-amount">~$490</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="budget-note">
+      <strong>Notes:</strong> Van confirmed at IDR 1,050,000/day (Innova, 2 carseats included) — split 50/50 between both parties. Airport transfer on Day 1 may need a separate hotel van — confirm with Garrya Bianti. Garrya Bianti accommodation not included — book directly. Abhayagiri dinner included in meals (est. $15–25/person). Silver at Kota Gede optional in both columns. <strong>All other prices are estimates</strong> — IDR converted at ~16,000/USD. Budget extra buffer for shopping.
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-orn">◆ ◇ ◆</div>
+    <div class="footer-text">Ngayogyakarta Hadiningrat · September 2026</div>
+  </div>
+
+</div>
+</body>
+</html>
