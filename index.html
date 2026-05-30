@@ -168,8 +168,8 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
 
 /* ── MOBILE ── */
 .mobile-nav-toggle { display:none; position:fixed; top:14px; left:14px; z-index:300; background:var(--ink-mid); border:1px solid rgba(201,168,76,.3); color:var(--gold); font-size:1.3rem; width:48px; height:48px; border-radius:6px; cursor:pointer; align-items:center; justify-content:center; }
-.nav-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:99; }
-.nav-overlay.open { display:block; }
+.nav-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.75); z-index:99; pointer-events:none; }
+.nav-overlay.open { display:block; pointer-events:auto; }
 @media(max-width:760px){
   :root{ --nav-w: 82vw }
   html{ font-size: 20px }
@@ -918,7 +918,7 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
         <div class="check-box"></div>
         <div class="check-text">
           <div class="check-title">Truntum Gasblock · Dinner Reservation</div>
-          <div class="check-note">Reserve for group of 6, evening of Sep 22 after sunset experience. Confirm accessibility for Tim — short walk from parking.</div>
+          <div class="check-note">Reserve for group of 6, evening of Sep 22 after sunset experience.</div>
         </div>
       </div>
       <div class="check-item" onclick="toggleCheck(this)">
@@ -946,25 +946,25 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
 
     <!-- BUDGET -->
     <div class="section-label" style="margin-top:52px">Estimated Budget</div>
-    <p class="budget-intro">All prices in USD · IDR ~16,000/USD · Excludes accommodation & international flights · Sura (1yo) free entry everywhere · Kai (3yo Indonesian) at domestic child rate</p>
+    <p class="budget-intro">All prices in USD · IDR ~17,900/USD · Excludes accommodation & international flights · Sura (1yo) free entry everywhere · Kai (3yo Indonesian) at domestic child rate</p>
     <div class="budget-cols">
       <div class="budget-card">
         <div class="budget-card-head">
           <div class="budget-card-title">The 4 of Us</div>
           <div class="budget-card-sub">T.K. · Namira · Kai · Sura</div>
         </div>
-        <div class="budget-row"><div class="budget-row-label">Private Van · 4 days<small>IDR 1,050,000/day · 2 carseats · split 50/50</small></div><div class="budget-row-amount">~$132</div></div>
-        <div class="budget-row"><div class="budget-row-label">Borobudur Sunset<small>T.K. IDR 1M · Namira IDR 500K · Kai IDR 500K · Sura free</small></div><div class="budget-row-amount">~$125</div></div>
-        <div class="budget-row"><div class="budget-row-label">Prambanan Tickets<small>T.K. IDR 400K · Kai IDR 225K · Sura free</small></div><div class="budget-row-amount">~$39</div></div>
+        <div class="budget-row"><div class="budget-row-label">Private Van · 4 days<small>IDR 1,050,000/day · 2 carseats · split 50/50</small></div><div class="budget-row-amount">~$118</div></div>
+        <div class="budget-row"><div class="budget-row-label">Borobudur Sunset<small>T.K. IDR 1M · Namira IDR 500K · Kai IDR 500K · Sura free</small></div><div class="budget-row-amount">~$112</div></div>
+        <div class="budget-row"><div class="budget-row-label">Prambanan Tickets<small>T.K. IDR 400K · Kai IDR 225K · Sura free</small></div><div class="budget-row-amount">~$35</div></div>
         <div class="budget-row"><div class="budget-row-label">Keraton + Sonobudoyo<small>Entry + shop purchases est.</small></div><div class="budget-row-amount">~$34</div></div>
-        <div class="budget-row"><div class="budget-row-label">Temple Guide · Prambanan<small>IDR 150K</small></div><div class="budget-row-amount">~$10</div></div>
+        <div class="budget-row"><div class="budget-row-label">Temple Guide · Prambanan<small>IDR 150K</small></div><div class="budget-row-amount">~$8</div></div>
         <div class="budget-row"><div class="budget-row-label">Meals · 4 days<small>Truntum dinner, Gudeg, Pakpos, Abhayagiri, hotel</small></div><div class="budget-row-amount">~$180</div></div>
         <div class="budget-row"><div class="budget-row-label">Shopping est.<small>Hamzah, Beringharjo — budget extra buffer</small></div><div class="budget-row-amount">~$100</div></div>
         <div class="budget-row"><div class="budget-row-label">Silver · Kota Gede (optional)<small>Est. if you go</small></div><div class="budget-row-amount">~$60</div></div>
         <div class="budget-row"><div class="budget-row-label">Buggies + misc<small>Prambanan, tips, incidentals</small></div><div class="budget-row-amount">~$25</div></div>
         <div class="budget-total">
           <div class="budget-total-label">Estimated Total</div>
-          <div class="budget-total-amount">~$705</div>
+          <div class="budget-total-amount">~$672</div>
         </div>
       </div>
       <div class="budget-card">
@@ -972,9 +972,9 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
           <div class="budget-card-title">Tim & Susan</div>
           <div class="budget-card-sub">2 elderly · shared car</div>
         </div>
-        <div class="budget-row"><div class="budget-row-label">Private Van · 4 days<small>Split 50/50 with family</small></div><div class="budget-row-amount">~$131</div></div>
-        <div class="budget-row"><div class="budget-row-label">Borobudur Sunset<small>2 × IDR 1,000,000</small></div><div class="budget-row-amount">~$125</div></div>
-        <div class="budget-row"><div class="budget-row-label">Prambanan Tickets<small>2 × IDR 400,000</small></div><div class="budget-row-amount">~$50</div></div>
+        <div class="budget-row"><div class="budget-row-label">Private Van · 4 days<small>Split 50/50 with family</small></div><div class="budget-row-amount">~$118</div></div>
+        <div class="budget-row"><div class="budget-row-label">Borobudur Sunset<small>2 × IDR 1,000,000</small></div><div class="budget-row-amount">~$112</div></div>
+        <div class="budget-row"><div class="budget-row-label">Prambanan Tickets<small>2 × IDR 400,000</small></div><div class="budget-row-amount">~$45</div></div>
         <div class="budget-row"><div class="budget-row-label">Keraton + Sonobudoyo<small>Entry + purchases est.</small></div><div class="budget-row-amount">~$23</div></div>
         <div class="budget-row"><div class="budget-row-label">Temple Guide<small>Shared — no extra cost</small></div><div class="budget-row-amount">$0</div></div>
         <div class="budget-row"><div class="budget-row-label">Meals · 4 days<small>Shared group tables est. per 2 pax</small></div><div class="budget-row-amount">~$90</div></div>
@@ -983,12 +983,12 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
         <div class="budget-row"><div class="budget-row-label">Buggies + misc<small>Prambanan, tips, incidentals</small></div><div class="budget-row-amount">~$20</div></div>
         <div class="budget-total">
           <div class="budget-total-label">Estimated Total</div>
-          <div class="budget-total-amount">~$559</div>
+          <div class="budget-total-amount">~$528</div>
         </div>
       </div>
     </div>
     <div class="budget-note">
-      <strong>Notes:</strong> Van confirmed at IDR 1,050,000/day (Innova, 2 carseats for Kai & Sura) — split 50/50. Borobudur sunset: IDR 1,000,000 foreigners · IDR 500,000 Indonesian adults & children · Sura free. Namira and Kai hold Indonesian citizenship — domestic rates apply. <strong>All prices are estimates</strong> — IDR at ~16,000/USD. Budget extra buffer for shopping at Beringharjo.
+      <strong>Notes:</strong> Van confirmed at IDR 1,050,000/day (Innova, 2 carseats for Kai & Sura) — split 50/50. Borobudur sunset: IDR 1,000,000 foreigners · IDR 500,000 Indonesian adults & children · Sura free. Namira and Kai hold Indonesian citizenship — domestic rates apply. <strong>All prices are estimates</strong> — IDR at ~17,900/USD. Budget extra buffer for shopping at Beringharjo.
     </div>
 
   </div>
