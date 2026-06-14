@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Gold circle background -->
+  <circle cx="16" cy="16" r="15" fill="#1a1610" stroke="#c9a84c" stroke-width="1.5"/>
+  <!-- Red top half (Indonesian flag) -->
+  <clipPath id="top">
+    <rect x="1" y="1" width="30" height="15"/>
+  </clipPath>
+  <circle cx="16" cy="16" r="13.5" fill="#CE1126" clip-path="url(#top)"/>
+  <!-- White bottom half (Indonesian flag) -->
+  <clipPath id="bot">
+    <rect x="1" y="16" width="30" height="15"/>
+  </clipPath>
+  <circle cx="16" cy="16" r="13.5" fill="#F5F0E8" clip-path="url(#bot)"/>
+  <!-- Gold divider line -->
+  <line x1="2.5" y1="16" x2="29.5" y2="16" stroke="#c9a84c" stroke-width="0.8"/>
+  <!-- Gold outer ring -->
+  <circle cx="16" cy="16" r="13.5" fill="none" stroke="#c9a84c" stroke-width="0.8"/>
+</svg>
