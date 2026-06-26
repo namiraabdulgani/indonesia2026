@@ -378,6 +378,39 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
   .emergency-row-label { font-size: 10px; }
   .emergency-toggle-label { font-size: 10px; }
 }
+
+/* ── COPY BUTTON ── */
+.copy-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+.copy-value {
+  font-size: .82rem;
+  color: var(--cream);
+  font-family: var(--font-mono);
+  letter-spacing: .04em;
+}
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201,168,76,.08);
+  border: 1px solid rgba(201,168,76,.25);
+  border-radius: 3px;
+  padding: 3px 8px;
+  cursor: pointer;
+  transition: background .2s;
+  white-space: nowrap;
+}
+.copy-btn:hover { background: rgba(201,168,76,.16); }
+.copy-btn.copied { color: #7ec87e; border-color: rgba(126,200,126,.3); background: rgba(126,200,126,.08); }
 </style>
 </head>
 <body>
@@ -425,7 +458,7 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
         <span class="nav-item-label">Vietnam</span>
         <span class="nav-item-dates">Sep 30–Oct 4 · Tim & Susan</span>
         <span class="nav-item-badge badge-done">Outbound ✓</span>
-        <span class="nav-item-badge badge-tbd" style="margin-top:4px">Return · Pending</span>
+        <span class="nav-item-badge badge-done" style="margin-top:4px">Return ✓</span>
       </div>
     </div>
     <div class="nav-item" onclick="showPage('bali')" id="nav-bali">
@@ -693,12 +726,12 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
           <div class="block-axis"><div class="dot red"></div><div class="connector" style="min-height:0;height:0"></div></div>
           <div class="block-content">
             <div class="block-tag tag-blue">Depart · DPS → YIA</div>
-            <div class="block-title">Drive to Airport · Fly to Yogyakarta</div>
-            <div class="block-desc">~45 min to DPS. Flight TBD — arriving YIA at 1:00 pm. Driver picks up in Yogyakarta for Garrya Bianti.</div>
+            <div class="block-title">Drive to Airport · Fly to Yogyakarta · GA0253</div>
+            <div class="block-desc">~45 min to DPS. Garuda Indonesia GA0253 departs 12:05 pm, arrives YIA 12:55 pm. Driver picks up in Yogyakarta for Garrya Bianti.</div>
             <div class="chips">
-              <span class="chip"><a class="map-link" href="https://maps.google.com/?q=Ngurah+Rai+International+Airport+Bali" target="_blank">📍 Ngurah Rai Airport</a></span>
-              <span class="chip">✈ DPS → YIA · arrive 1:00 pm</span>
-              <span class="chip">🎟 Book flight Jun 25</span>
+              <span class="chip"><a class="map-link" href="https://maps.google.com/?q=Ngurah+Rai+International+Airport+Bali" target="_blank">📍 Ngurah Rai Airport · Terminal D</a></span>
+              <span class="chip">✈ GA0253 · DPS 12:05 pm → YIA 12:55 pm</span>
+              <span class="chip">📋 Ref: E6BY6M · last check-in 11:35 am</span>
             </div>
           </div>
         </div>
@@ -741,17 +774,22 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
 
 
         <div class="info-row">
-          <div class="info-row-icon">📞</div>
+          <div class="info-row-icon">💬</div>
           <div class="info-row-text">
-            <div class="info-row-label">Hotel Contact</div>
-            <div class="info-row-value"><span class="info-tbd">WhatsApp concierge TBD</span></div>
+            <div class="info-row-label">Online Concierge</div>
+            <div class="info-row-value"><a href="https://garryabianti.duve.co/g/JKh6AgdOD?isCompany=1&isPreviewMode=1&id=home" target="_blank">garryabianti.duve.co</a><br>
+              <div class="copy-row">
+                <span class="copy-value">Booking # 1658112796493602</span>
+                <button class="copy-btn" onclick="copyToClipboard('1658112796493602', this)">Copy</button>
+              </div>
+            </div>
           </div>
         </div>
         <div class="info-row">
           <div class="info-row-icon">✈️</div>
           <div class="info-row-text">
-            <div class="info-row-label">Departure Flight</div>
-            <div class="info-row-value">Sep 24 · YIA 13:40<br>Leave hotel by 11:00am</div>
+            <div class="info-row-label">Departure Flight · Sep 24</div>
+            <div class="info-row-value">GA0254 · YIA 12:05 pm → DPS 2:35 pm<br>Leave hotel by 9:30 am · last check-in 11:35 am · Ref: E6BY6M</div>
           </div>
         </div>
       </div>
@@ -1087,12 +1125,12 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
           </div>
         </div>
         <div class="block">
-          <div class="block-time"><span>11:00 am</span></div>
+          <div class="block-time"><span>9:30 am</span></div>
           <div class="block-axis"><div class="dot red"></div><div class="connector" style="min-height:0;height:0"></div></div>
           <div class="block-content">
             <div class="block-tag tag-blue">Depart</div>
-            <div class="block-title">Drive to YIA Airport · ~1.5 hrs</div>
-            <div class="block-desc">Leave no later than 11:00am. Arriving at YIA by 12:30 gives a comfortable buffer for family check-in with Sura and Kai. All luggage already in van from morning load-out.</div>
+            <div class="block-title">Drive to YIA Airport · ~1hr 15min</div>
+            <div class="block-desc">Leave by 9:30am — YIA is the new airport in Kulon Progo, ~1hr 15min from Garrya Bianti. Last check-in 11:35am, giving a comfortable 2hr buffer for the whole group with kids and luggage.</div>
             <div class="chips">
               <span class="chip"><a class="map-link" href="https://maps.google.com/?q=YIA+Yogyakarta+International+Airport" target="_blank">📍 YIA Airport, Kulonprogo</a></span>
               <span class="chip">✈ Depart YIA 13:40</span>
@@ -1955,25 +1993,50 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
           <div class="block-axis"><div class="dot red"></div><div class="connector"></div></div>
           <div class="block-content">
             <div class="block-tag tag-blue">Depart · Hue</div>
-            <div class="block-title">Private Car · Hue → Da Nang Airport</div>
-            <div class="block-desc">~2.5 hrs drive from Hue city center to Da Nang Airport. The route passes over Hai Van Pass — one of Vietnam's most scenic coastal drives, with breathtaking views of the South China Sea. Ask the driver to stop briefly at the pass for photos.</div>
+            <div class="block-title">Private Car · Hue City Center → Da Nang Airport</div>
+            <div class="block-desc">~2.5 hrs drive from Hue city center to Da Nang Airport via Hai Van Pass — one of Vietnam's most scenic coastal drives, with breathtaking views of the South China Sea. Ask the driver to stop briefly at the pass for photos. Pre-book from the hotel the night before.</div>
             <div class="chips">
-              <span class="chip">🕐 ~2.5 hrs · arrive Da Nang ~10:30 am</span>
-              <span class="chip">🌊 Scenic: Hai Van Pass coastal views</span>
+              <span class="chip">🕐 Leave 8:00 am · arrive Da Nang ~10:30 am</span>
+              <span class="chip">🌊 Hai Van Pass · scenic coastal stop</span>
               <span class="chip">📞 Pre-book private car from hotel</span>
             </div>
           </div>
         </div>
         <div class="block">
           <div class="block-time"><span>~10:30 am</span></div>
-          <div class="block-axis"><div class="dot blue"></div><div class="connector" style="min-height:0;height:0"></div></div>
+          <div class="block-axis"><div class="dot blue"></div><div class="connector"></div></div>
           <div class="block-content">
             <div class="block-tag tag-blue">Arrive · Da Nang Airport</div>
-            <div class="block-title">Da Nang Airport · Fly to Bali</div>
-            <div class="block-desc">Flight details TBD — Batik Air Malaysia pending rebooking. Once booked, allow at least 2 hrs before departure.</div>
+            <div class="block-title">Da Nang Airport · Terminal 2</div>
+            <div class="block-desc">1hr 25min buffer before departure. Check in, drop bags, grab breakfast at the airport.</div>
             <div class="chips">
-              <span class="chip"><a class="map-link" href="https://maps.google.com/?q=Da+Nang+International+Airport+Vietnam" target="_blank">📍 Da Nang International Airport (DAD)</a></span>
-              <span class="chip">✈ Da Nang → Bali · TBD · rebook Batik Air</span>
+              <span class="chip"><a class="map-link" href="https://maps.google.com/?q=Da+Nang+International+Airport+Vietnam" target="_blank">📍 Da Nang International Airport · Terminal 2</a></span>
+            </div>
+          </div>
+        </div>
+        <div class="block">
+          <div class="block-time"><span>11:55 am</span></div>
+          <div class="block-axis"><div class="dot red"></div><div class="connector"></div></div>
+          <div class="block-content">
+            <div class="block-tag tag-gold">★ SQ171 · Da Nang → Singapore</div>
+            <div class="block-title">Fly Da Nang → Singapore · SQ171</div>
+            <div class="block-desc">Singapore Airlines on a Boeing 737 Max 8. Arrive Singapore Changi Terminal 2 at 3:55 pm. 1hr 50min layover — stay airside at Changi.</div>
+            <div class="chips">
+              <span class="chip">✈ SQ171 · DAD 11:55 am → SIN 3:55 pm</span>
+              <span class="chip">🛬 Changi Terminal 2</span>
+            </div>
+          </div>
+        </div>
+        <div class="block">
+          <div class="block-time"><span>5:45 pm</span></div>
+          <div class="block-axis"><div class="dot red"></div><div class="connector" style="min-height:0;height:0"></div></div>
+          <div class="block-content">
+            <div class="block-tag tag-blue">SQ946 · Singapore → Bali</div>
+            <div class="block-title">Fly Singapore → Bali · SQ946</div>
+            <div class="block-desc">Boeing 787, departs Changi Terminal 2. Arrives Ngurah Rai Bali Terminal I at 8:25 pm. Transfer to hotel — Tim & Susan back in Bali.</div>
+            <div class="chips">
+              <span class="chip">✈ SQ946 · SIN 5:45 pm → DPS 8:25 pm</span>
+              <span class="chip">🛬 Ngurah Rai · Terminal I · Oct 4</span>
             </div>
           </div>
         </div>
@@ -2007,8 +2070,8 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
         <div class="info-row">
           <div class="info-row-icon">✈️</div>
           <div class="info-row-text">
-            <div class="info-row-label">Tim & Susan · Arrive Oct 4</div>
-            <div class="info-row-value">Da Nang → Bali<br><span class="info-tbd">Batik Air Malaysia · TBD</span></div>
+            <div class="info-row-label">Tim & Susan · Arrive Oct 4 ✓</div>
+            <div class="info-row-value">SQ171 DAD 11:55 am → SIN 3:55 pm<br>SQ946 SIN 5:45 pm → DPS 8:25 pm</div>
           </div>
         </div>
         <div class="info-row">
@@ -2067,6 +2130,17 @@ function loadCheckState() {
   const state = JSON.parse(raw);
   const items = document.querySelectorAll('.check-item');
   items.forEach((item, i) => { if (state[i]) item.classList.add('checked'); });
+}
+
+function copyToClipboard(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copied ✓';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = 'Copy';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
 }
 
 function toggleEmergency(id) {
