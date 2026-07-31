@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ubud & Jimbaran · 24–30 September 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #e6c97a;
+  --dark: #0f0e0c;
+  --dark2: #1a1814;
+  --dark3: #242118;
+  --cream: #e8e0cc;
+  --cream-dim: #9e9480;
+  --green: #6a9e72;
+  --blue: #5a89b0;
+  --red: #b05a5a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--dark); color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 18px; line-height: 1.7; padding-bottom: 80px; }
+
+/* HERO */
+.hero { background: linear-gradient(180deg,#1a1510 0%,var(--dark) 100%); border-bottom: 1px solid rgba(201,168,76,.2); padding: 48px 24px 40px; text-align: center; }
+.hero-kicker { font-size: 13px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.hero-title { font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 400; color: #fff; line-height: 1.1; margin-bottom: 4px; }
+.hero-title em { font-style: italic; color: var(--gold-light); }
+.hero-ornament { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 14px 0; }
+.orn-line { flex: 1; max-width: 60px; height: 1px; background: var(--gold); opacity: .4; }
+.orn-diamond { color: var(--gold); font-size: 8px; opacity: .7; }
+.hero-sub { font-size: 15px; color: var(--cream-dim); letter-spacing: .05em; }
+
+/* TABS */
+.tab-nav { display: flex; justify-content: center; border-bottom: 1px solid rgba(201,168,76,.15); gap: 4px; }
+.tab-btn { padding: 14px 24px; font-size: 14px; font-family: 'DM Sans', sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--cream-dim); background: none; border: none; border-bottom: 2px solid transparent; cursor: pointer; white-space: nowrap; }
+.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+/* CONTENT */
+.section { display: none; max-width: 600px; margin: 0 auto; padding: 28px 20px; }
+.section.active { display: block; }
+
+/* SECTION LABEL */
+.section-label { font-size: 11px; letter-spacing: .25em; text-transform: uppercase; color: var(--gold); border-bottom: 1px solid rgba(201,168,76,.2); padding-bottom: 8px; margin: 28px 0 20px; }
+
+/* INFO CARD */
+.info-card { background: var(--dark2); border: 1px solid rgba(201,168,76,.15); border-radius: 10px; overflow: hidden; margin-bottom: 20px; }
+.info-card-header { background: rgba(201,168,76,.08); border-bottom: 1px solid rgba(201,168,76,.15); padding: 10px 16px; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); }
+.info-row { display: flex; gap: 12px; padding: 14px 16px; border-bottom: 1px solid rgba(255,255,255,.05); align-items: flex-start; }
+.info-row:last-child { border-bottom: none; }
+.info-row-icon { font-size: 18px; width: 28px; flex-shrink: 0; }
+.info-row-label { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--cream-dim); margin-bottom: 4px; }
+.info-row-value { font-size: 16px; color: var(--cream); line-height: 1.5; }
+.info-row-value a { color: var(--gold-light); text-decoration: none; }
+
+/* DAY */
+.day { margin-bottom: 36px; }
+.day-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+.day-num { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 500; color: var(--gold); line-height: 1; }
+.day-title { font-size: 18px; font-weight: 500; color: var(--cream); flex: 1; }
+.day-date { font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--cream-dim); }
+
+/* MAP */
+.day-map-wrap { border-radius: 8px; overflow: hidden; margin-bottom: 16px; border: 1px solid rgba(201,168,76,.12); }
+.day-map-label { background: var(--dark3); padding: 7px 12px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--cream-dim); }
+.day-map-wrap iframe { width: 100%; height: 200px; border: none; display: block; filter: invert(90%) hue-rotate(180deg) saturate(0.6) brightness(0.85); }
+
+/* TIMELINE — fixed alignment */
+.timeline { display: flex; flex-direction: column; }
+.block { display: flex; gap: 0; }
+.block-time { width: 80px; flex-shrink: 0; text-align: right; padding-right: 14px; padding-top: 1px; }
+.block-time span { font-size: 13px; color: var(--cream-dim); white-space: nowrap; line-height: 1; }
+.block-axis { width: 22px; flex-shrink: 0; display: flex; flex-direction: column; align-items: center; }
+.dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.dot.green  { background: var(--green); box-shadow: 0 0 6px var(--green); }
+.dot.blue   { background: var(--blue);  box-shadow: 0 0 6px var(--blue); }
+.dot.red    { background: var(--red);   box-shadow: 0 0 6px var(--red); }
+.dot.gold   { background: var(--gold);  box-shadow: 0 0 6px var(--gold); }
+.dot.hollow { width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--cream-dim); background: none; }
+.connector  { flex: 1; width: 1px; background: rgba(255,255,255,.1); min-height: 24px; margin-top: 4px; }
+.block-content { flex: 1; padding: 0 0 24px 14px; }
+
+/* TAGS */
+.block-tag { display: inline-block; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; margin-bottom: 6px; font-weight: 500; }
+.tag-green { background: rgba(106,158,114,.15); color: #8ec896; border: 1px solid rgba(106,158,114,.3); }
+.tag-blue  { background: rgba(90,137,176,.15);  color: #8ab8d8; border: 1px solid rgba(90,137,176,.3); }
+.tag-gold  { background: rgba(201,168,76,.12);  color: var(--gold-light); border: 1px solid rgba(201,168,76,.3); }
+.tag-warm  { background: rgba(180,130,80,.12);  color: #d4a872; border: 1px solid rgba(180,130,80,.25); }
+.tag-food  { background: rgba(176,90,90,.12);   color: #d4888a; border: 1px solid rgba(176,90,90,.25); }
+
+.block-title { font-size: 20px; font-weight: 600; color: #fff; margin-bottom: 6px; line-height: 1.2; }
+.block-desc  { font-size: 16px; color: var(--cream-dim); line-height: 1.65; margin-bottom: 10px; }
+
+/* CHIPS */
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.chip { font-size: 13px; color: var(--cream-dim); background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: 4px; padding: 5px 10px; line-height: 1.4; }
+.chip a { color: var(--gold-light); text-decoration: none; }
+
+/* FOOTER */
+.footer { text-align: center; padding: 32px 24px; font-size: 13px; color: var(--cream-dim); border-top: 1px solid rgba(255,255,255,.06); margin-top: 40px; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-kicker">24–30 September 2026 · Keluarga Abdulgani – Broderick</div>
+  <div class="hero-title">Ubud & <em>Jimbaran</em></div>
+  <div class="hero-ornament"><div class="orn-line"></div><div class="orn-diamond">◆</div><div class="orn-line"></div></div>
+  <div class="hero-sub">IBU The Sanctuary & Hanani Villa · Bali</div>
+</div>
+
+<div class="tab-nav">
+  <button class="tab-btn active" onclick="show('itinerary',this)">Itinerary</button>
+  <button class="tab-btn" onclick="show('info',this)">Info</button>
+  <button class="tab-btn" onclick="show('darurat',this)">Darurat</button>
+</div>
+
+<!-- ITINERARY -->
+<div id="itinerary" class="section active">
+  <div class="section-label">Ubud · Sep 24–28</div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-num">24 Sep</div>
+      <div class="day-title">Tiba di IBU</div>
+      <div class="day-date">Kamis</div>
+    </div>
+    <div class="timeline">
+      <div class="block">
+        <div class="block-time"><span>~3:30 pm</span></div>
+        <div class="block-axis"><div class="dot blue"></div><div class="connector"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-blue">Kedatangan</div>
+          <div class="block-title">Tiba di IBU – The Sanctuary</div>
+          <div class="block-desc">Keluarga Indonesia sudah berada di villa lebih dulu. T.K., Namira, dan anak-anak tiba dari Yogyakarta sekitar jam 3.30 sore. Santai saja, malam ini tidak ada rencana khusus. Namira menyelesaikan pekerjaan.</div>
+          <div class="chips"><span class="chip"><a href="https://maps.google.com/?q=IBU+The+Sanctuary+Sukawati+Bali" target="_blank">📍 IBU – The Sanctuary, Sukawati</a></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-num">25 Sep</div>
+      <div class="day-title">Hari Santai · Waktu Keluarga</div>
+      <div class="day-date">Jumat</div>
+    </div>
+    <div class="timeline">
+      <div class="block">
+        <div class="block-time"><span>Seharian</span></div>
+        <div class="block-axis"><div class="dot hollow"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-warm">Santai</div>
+          <div class="block-title">Waktu Bebas · Kolam Renang · Pesan Antar</div>
+          <div class="block-desc">Namira kerja dari villa seharian. Keluarga bebas bermain bersama anak-anak, nikmati kolam renang. Makan bisa pesan antar — dapur IBU lengkap.</div>
+          <div class="chips">
+            <span class="chip">🏊 Kolam renang villa</span>
+            <span class="chip">🛵 Pesan antar dari pusat Ubud</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-num">26 Sep</div>
+      <div class="day-title">Tegalalang · Tis Cafe · Ukiran Kayu · Nusantara</div>
+      <div class="day-date">Sabtu</div>
+    </div>
+    <div class="day-map-wrap">
+      <div class="day-map-label">Rute: IBU → Tegalalang → Tis Cafe → Jl. Raya Andong → Nusantara</div>
+      <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCUqyTrq2tF4z06wWDyBJjzrRS_UpyUL0M&origin=IBU+The+Sanctuary+Sukawati+Bali&destination=Nusantara+by+Locavore+Jl+Dewisita+Ubud&waypoints=Tegalalang+Rice+Terrace+Bali|Tis+Cafe+Jl+Raya+Ceking+Tegalalang+Bali|Jl+Raya+Andong+Ubud+Bali&mode=driving">
+      </iframe>
+    </div>
+    <div class="timeline">
+      <div class="block">
+        <div class="block-time"><span>10:00 am</span></div>
+        <div class="block-axis"><div class="dot green"></div><div class="connector"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-green">Wisata</div>
+          <div class="block-title">Sawah Tegalalang · Kopi Luwak</div>
+          <div class="block-desc">Jalan-jalan pagi di sawah terasering Ceking yang ikonik — pemandangan lembah yang luar biasa dan udara sejuk. Singgah di kebun kopi luwak di sepanjang jalan untuk icip-icip.</div>
+          <div class="chips">
+            <span class="chip"><a href="https://maps.google.com/?q=Tegalalang+Rice+Terrace+Ubud+Bali" target="_blank">📍 Sawah Tegalalang, Gianyar</a></span>
+            <span class="chip">☕ Kopi luwak di sepanjang jalan</span>
+            <span class="chip">👟 Pakai alas kaki yang nyaman</span>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-time"><span>12:00 pm</span></div>
+        <div class="block-axis"><div class="dot gold"></div><div class="connector"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-food">★ Makan Siang</div>
+          <div class="block-title">Tis Cafe · Tegalalang</div>
+          <div class="block-desc">Tepat di tepi sawah Ceking — kolam renang infinity menghadap sawah, makan di gazebo, ada ayunan untuk anak-anak. Menu Indonesia dan Asia fusion, minuman segar. Rating 4.8.</div>
+          <div class="chips">
+            <span class="chip"><a href="https://maps.google.com/?q=Tis+Cafe+Jl+Raya+Ceking+Tegalalang+Bali" target="_blank">📍 Jl. Raya Ceking, Tegalalang</a></span>
+            <span class="chip">🕐 Buka 8 pagi–10 malam</span>
+            <span class="chip">🎪 Ada ayunan — Kai pasti senang</span>
+            <span class="chip">📞 +62 823-3974-9255</span>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-time"><span>2:30 pm</span></div>
+        <div class="block-axis"><div class="dot green"></div><div class="connector"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-green">Belanja</div>
+          <div class="block-title">Ukiran Kayu · Jl. Raya Andong</div>
+          <div class="block-desc">Jalan ukiran kayu utama Ubud — topeng Bali, patung, furnitur, dan pernak-pernik dekoratif. Harga bisa ditawar.</div>
+          <div class="chips">
+            <span class="chip"><a href="https://maps.google.com/?q=Jl+Raya+Andong+Ubud+Bali" target="_blank">📍 Jl. Raya Andong, Ubud</a></span>
+            <span class="chip">💵 Tunai lebih baik · bisa tawar</span>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-time"><span>~4:00 pm</span></div>
+        <div class="block-axis"><div class="dot hollow"></div><div class="connector"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-warm">Istirahat</div>
+          <div class="block-title">Kembali ke Villa · Kolam Renang · Bersiap</div>
+          <div class="block-desc">Istirahat sebelum makan malam. Kolam renang untuk anak-anak, bersiap untuk malam.</div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-time"><span>6:00 pm</span></div>
+        <div class="block-axis"><div class="dot gold"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-food">★ Makan Malam</div>
+          <div class="block-title">Nusantara by Locavore</div>
+          <div class="block-desc">Masakan dari seluruh 17.000 pulau Indonesia — dari tim di balik restoran ternama Locavore NXT. Hidangan disajikan per daerah asal, cara makan bersama. <strong style="color:#8ec896">Reservasi sudah dikonfirmasi.</strong></div>
+          <div class="chips">
+            <span class="chip"><a href="https://maps.google.com/?q=Nusantara+by+Locavore+Jl+Dewisita+Ubud" target="_blank">📍 Jl. Dewisita No.09C, Ubud</a></span>
+            <span class="chip">✅ Sudah reservasi · 26 Sep jam 6 malam</span>
+            <span class="chip">IDR 250–400rb/orang</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-num">27 Sep</div>
+      <div class="day-title">Hari Bebas</div>
+      <div class="day-date">Minggu</div>
+    </div>
+    <div class="timeline">
+      <div class="block">
+        <div class="block-time"><span>Seharian</span></div>
+        <div class="block-axis"><div class="dot hollow"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-warm">Hari Bebas</div>
+          <div class="block-title">Tidak Ada Rencana · Santai di Villa</div>
+          <div class="block-desc">Tidak ada agenda. Spa, Pasar Seni Ubud, jalan pagi di sawah, atau cukup di kolam renang villa. Biarkan semua memilih sendiri.</div>
+          <div class="chips">
+            <span class="chip">💆 Spa Ubud di dekat villa</span>
+            <span class="chip">🛍 Pasar Seni Ubud · Jl. Raya Ubud</span>
+            <span class="chip">🌿 Jalan pagi di sawah</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-num">28 Sep</div>
+      <div class="day-title">Hutan Monyet · Check Out · Jimbaran</div>
+      <div class="day-date">Senin</div>
+    </div>
+    <div class="day-map-wrap">
+      <div class="day-map-label">Rute: IBU → Bebek Tepi Sawah → Monkey Forest → Hanani Villa</div>
+      <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCUqyTrq2tF4z06wWDyBJjzrRS_UpyUL0M&origin=IBU+The+Sanctuary+Sukawati+Bali&destination=Hanani+Villa+Jl+Yoga+Perkanthi+Jimbaran+Bali&waypoints=Bebek+Tepi+Sawah+Ubud+Bali|Sacred+Monkey+Forest+Sanctuary+Ubud+Bali&mode=driving">
+      </iframe>
+    </div>
+    <div class="timeline">
+      <div class="block">
+        <div class="block-time"><span>11:00 am</span></div>
+        <div class="block-axis"><div class="dot hollow"></div><div class="connector"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-warm">Check Out</div>
+          <div class="block-title">Check Out IBU · Packing</div>
+          <div class="block-desc">Pagi santai — packing dengan tenang dan check out. Barang masuk ke mobil, tidak perlu terburu-buru.</div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-time"><span>12:00 pm</span></div>
+        <div class="block-axis"><div class="dot gold"></div><div class="connector"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-food">★ Makan Siang</div>
+          <div class="block-title">Bebek Tepi Sawah · Bebek Goreng Khas Bali</div>
+          <div class="block-desc">Dekat dari IBU — gazebo terbuka di tepi sawah yang hijau, bebek goreng renyah dengan sambal Bali, iga babi, dan jus segar. Ada tari Bali setiap hari jam 1–3 siang.</div>
+          <div class="chips">
+            <span class="chip"><a href="https://maps.google.com/?q=Bebek+Tepi+Sawah+Jl+Raya+Goa+Gajah+Ubud" target="_blank">📍 Jl. Raya Goa Gajah, Ubud</a></span>
+            <span class="chip">🦆 Wajib coba: Bebek Goreng Tepi Sawah</span>
+            <span class="chip">💃 Tari Bali jam 1–3 sore setiap hari</span>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-time"><span>2:00 pm</span></div>
+        <div class="block-axis"><div class="dot gold"></div><div class="connector"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-gold">★ Wisata</div>
+          <div class="block-title">Monkey Forest · Hutan Monyet Ubud</div>
+          <div class="block-desc">Hari Senin jauh lebih sepi dari weekend. Hutan seluas 12,5 hektar dengan lebih dari 1.200 ekor monyet dan pura tua dari abad ke-14. Simpan hp, kacamata, dan makanan — monyet-monyetnya berani.</div>
+          <div class="chips">
+            <span class="chip"><a href="https://maps.google.com/?q=Sacred+Monkey+Forest+Sanctuary+Ubud+Bali" target="_blank">📍 Jl. Monkey Forest, Ubud</a></span>
+            <span class="chip">🕐 Buka 9 pagi–6 sore</span>
+            <span class="chip">IDR 80rb dewasa · IDR 100rb anak · Sura gratis</span>
+            <span class="chip">⚠ Jangan bawa makanan atau tas terbuka</span>
+          </div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-time"><span>4:00 pm</span></div>
+        <div class="block-axis"><div class="dot blue"></div><div class="connector"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-blue">Perjalanan</div>
+          <div class="block-title">Menuju Jimbaran · ~1,5 jam</div>
+          <div class="block-desc">Berangkat ke selatan menuju Jimbaran. Hanani Villa buka check-in dari jam 4 sore.</div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-time"><span>~5:30 pm</span></div>
+        <div class="block-axis"><div class="dot hollow"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-blue">Check In</div>
+          <div class="block-title">Hanani Villa · Jimbaran</div>
+          <div class="block-desc">Tiba dan nikmati villa. Dari sini acaranya mengalir sendiri — pantai, kolam renang, seafood Jimbaran, atau sekadar bersantai.</div>
+          <div class="chips"><span class="chip"><a href="https://maps.google.com/?q=Jl.+Yoga+Perkanthi+No.4+Jimbaran+Bali" target="_blank">📍 Jl. Yoga Perkanthi No.4, Jimbaran</a></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-top:32px">Jimbaran · Sep 28–30</div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-num">29 Sep</div>
+      <div class="day-title">Hari Bebas · Pantai · Seafood</div>
+      <div class="day-date">Selasa</div>
+    </div>
+    <div class="timeline">
+      <div class="block">
+        <div class="block-time"><span>Seharian</span></div>
+        <div class="block-axis"><div class="dot hollow"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-warm">Bebas</div>
+          <div class="block-title">Pantai Jimbaran · Villa · Seafood Malam</div>
+          <div class="block-desc">Tidak ada agenda. Pantai Jimbaran tepat di dekat villa — air tenang dan dangkal, aman untuk anak-anak. Malam hari bisa makan seafood di warung tepi pantai yang terkenal.</div>
+          <div class="chips">
+            <span class="chip"><a href="https://maps.google.com/?q=Jimbaran+Beach+Bali" target="_blank">📍 Pantai Jimbaran</a></span>
+            <span class="chip">🦞 Seafood tepi pantai saat matahari terbenam</span>
+            <span class="chip">🏊 Kolam renang villa</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="day">
+    <div class="day-header">
+      <div class="day-num">30 Sep</div>
+      <div class="day-title">Check Out · Pisah Jalan</div>
+      <div class="day-date">Rabu</div>
+    </div>
+    <div class="timeline">
+      <div class="block">
+        <div class="block-time"><span>Pagi</span></div>
+        <div class="block-axis"><div class="dot hollow"></div><div class="connector"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-warm">Pagi Santai</div>
+          <div class="block-title">Sarapan Terakhir · Packing</div>
+          <div class="block-desc">Sarapan bersama, renang terakhir. Sep 28–30 mengalir alami — pantai, kolam renang, seafood Jimbaran, apapun yang diinginkan rombongan.</div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="block-time"><span>~11:00 am</span></div>
+        <div class="block-axis"><div class="dot hollow"></div></div>
+        <div class="block-content">
+          <div class="block-tag tag-warm">Check Out</div>
+          <div class="block-title">Check Out Hanani · Berpisah</div>
+          <div class="block-desc">Tim dan Susan berangkat ke bandara menuju Vietnam. Keluarga pindah ke Puri Bambu bersama teman-teman.</div>
+          <div class="chips">
+            <span class="chip">🏡 Keluarga → Puri Bambu, Jimbaran</span>
+            <span class="chip">✈ Tim & Susan → Vietnam (VN640 jam 4 sore)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INFO -->
+<div id="info" class="section">
+  <div class="section-label">Informasi Villa</div>
+
+  <div class="info-card">
+    <div class="info-card-header">IBU – The Sanctuary · Sep 24–28</div>
+    <div class="info-row">
+      <div class="info-row-icon">📍</div>
+      <div class="info-row-text">
+        <div class="info-row-label">Alamat</div>
+        <div class="info-row-value"><a href="https://maps.google.com/?q=IBU+The+Sanctuary+Sukawati+Bali" target="_blank">IBU – The Sanctuary</a><br>Jl. Pasung Grigis, Kemenuh, Sukawati, Gianyar<br>~7 menit dari pusat Ubud</div>
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="info-row-icon">🛏</div>
+      <div class="info-row-text">
+        <div class="info-row-label">Kamar</div>
+        <div class="info-row-value">4 kamar tidur · Vila pribadi dengan kolam renang<br>Check-in setelah jam 3 sore · Check-out sebelum jam 11 pagi</div>
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="info-row-icon">🍳</div>
+      <div class="info-row-text">
+        <div class="info-row-label">Sarapan</div>
+        <div class="info-row-value">Add-on opsional · IDR 500.000 untuk 2 orang<br>Pilihan: American · Continental · Indonesian · Healthy · Balinese<br><span style="color:var(--cream-dim);font-size:14px">Semua termasuk jus buah, buah potong & kopi/teh</span></div>
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="info-row-icon">🚗</div>
+      <div class="info-row-text">
+        <div class="info-row-label">Driver</div>
+        <div class="info-row-value" style="color:#d4a872">Nama & nomor menyusul</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-card">
+    <div class="info-card-header">Hanani Villa · Sep 28–30</div>
+    <div class="info-row">
+      <div class="info-row-icon">📍</div>
+      <div class="info-row-text">
+        <div class="info-row-label">Alamat</div>
+        <div class="info-row-value"><a href="https://maps.google.com/?q=Jl.+Yoga+Perkanthi+No.4+Jimbaran+Bali" target="_blank">Hanani Villa</a><br>Jl. Yoga Perkanthi No.4, Jimbaran, Badung</div>
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="info-row-icon">🛏</div>
+      <div class="info-row-text">
+        <div class="info-row-label">Kamar</div>
+        <div class="info-row-value">Vila pribadi · Check-in dari jam 4 sore<br>Check-out sebelum jam 11 pagi</div>
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="info-row-icon">🍳</div>
+      <div class="info-row-text">
+        <div class="info-row-label">Sarapan</div>
+        <div class="info-row-value">Sudah termasuk · disediakan villa setiap pagi</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DARURAT -->
+<div id="darurat" class="section">
+  <div class="section-label">Informasi Darurat</div>
+
+  <div class="info-card">
+    <div class="info-card-header">🚨 Kontak Darurat · Ubud & Jimbaran</div>
+    <div class="info-row">
+      <div class="info-row-icon">🏥</div>
+      <div class="info-row-text">
+        <div class="info-row-label">Rumah Sakit Terdekat (Ubud)</div>
+        <div class="info-row-value"><a href="https://maps.google.com/?q=BIMC+Hospital+Ubud+Bali" target="_blank">BIMC Hospital · Ubud</a><br>Jl. Raya Ubud No.100X · ~10 menit dari villa IBU<br>+62 361 200 2102 · UGD 24 jam</div>
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="info-row-icon">🏥</div>
+      <div class="info-row-text">
+        <div class="info-row-label">Rumah Sakit Terdekat (Jimbaran)</div>
+        <div class="info-row-value"><a href="https://maps.google.com/?q=BIMC+Siloam+Hospital+Nusa+Dua+Bali" target="_blank">BIMC Siloam · Nusa Dua</a><br>Kawasan BTDC Blok D, Nusa Dua · ~30 menit dari Hanani<br>+62 361 3000 911 · UGD 24 jam</div>
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="info-row-icon">💊</div>
+      <div class="info-row-text">
+        <div class="info-row-label">Apotek 24 Jam</div>
+        <div class="info-row-value">Apotek K-24 · banyak cabang di Ubud<br>Tanya staf villa untuk cabang terdekat</div>
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="info-row-icon">🚑</div>
+      <div class="info-row-text">
+        <div class="info-row-label">Nomor Darurat Indonesia</div>
+        <div class="info-row-value">
+          🆘 Semua darurat: <strong>112</strong><br>
+          🚑 Ambulans: <strong>118</strong><br>
+          🚒 Pemadam: <strong>113</strong><br>
+          👮 Polisi: <strong>110</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Ubud & Jimbaran · 24–30 September 2026 · Keluarga Abdulgani – Broderick<br>
+  <span style="color:rgba(255,255,255,.2)">Dibuat dengan ❤ untuk perjalanan kita bersama</span>
+</div>
+
+<script>
+function show(name, btn) {
+  document.querySelectorAll('.section').forEach(function(s){ s.classList.remove('active'); });
+  document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+  document.getElementById(name).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
