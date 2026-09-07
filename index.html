@@ -97,6 +97,16 @@ body { background:var(--ink); color:var(--cream); font-family:var(--font-body); 
 
 /* ── DAY BLOCK ── */
 .day { margin-bottom:50px; }
+.day-header { cursor:pointer; user-select:none; position:relative; padding-right:28px; transition:opacity .15s; }
+.day-header:hover { opacity:.75; }
+.day-chevron { position:absolute; right:2px; top:50%; transform:translateY(-50%) rotate(0deg); transition:transform .2s; font-size:.7rem; color:var(--gold,#c9a84c); opacity:.6; line-height:1; }
+.day.collapsed .day-chevron { transform:translateY(-50%) rotate(-90deg); }
+.day.collapsed > *:not(.day-header) { display:none; }
+.day.collapsed { margin-bottom:0; }
+.day.collapsed .day-header { margin-bottom:0; border-bottom-color:rgba(201,168,76,.08); }
+.day-toolbar { display:flex; gap:10px; margin:0 0 18px; }
+.day-toolbar button { background:none; border:1px solid rgba(201,168,76,.3); color:var(--gold,#c9a84c); font:inherit; font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; padding:6px 12px; border-radius:3px; cursor:pointer; }
+.day-toolbar button:hover { background:rgba(201,168,76,.1); }
 .day-header { display:flex; align-items:baseline; gap:14px; margin-bottom:22px; padding-bottom:12px; border-bottom:1px solid rgba(201,168,76,.15); flex-wrap:wrap; }
 .day-num { font-family:var(--font-mono); font-size:10px; letter-spacing:.25em; color:var(--gold); text-transform:uppercase; flex-shrink:0; }
 .day-title { font-size:1.55rem; font-weight:300; flex:1; font-family:'Cormorant Garamond', Georgia, serif; }
@@ -630,32 +640,32 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
       </div>
     </div>
 
-    <!-- SEP 19 CV WIRAS -->
+    <!-- SEP 19 CV SANTHI -->
     <div class="day">
       <div class="day-header">
         <div class="day-num">Sep 19</div>
-        <div class="day-title">CV Wiras · Shopping & Custom Garment</div>
+        <div class="day-title">CV. Santhi · Shopping & Custom Garment</div>
         <div class="day-date">Sat · Sep 19</div>
       </div>
       <div class="day-map-wrap">
-        <div class="day-map-label">Sep 19 · Vanara Resort → CV Wiras, Kuta</div>
+        <div class="day-map-label">Sep 19 · Vanara Resort → CV. Santhi, Kuta</div>
         <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCUqyTrq2tF4z06wWDyBJjzrRS_UpyUL0M&origin=Vanara+Resort+Spa+Jl+Batu+Nunggalan+Pecatu+Bali&destination=CV+Wiras+Jl+Raya+Kuta+Bali&mode=driving">
+          src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCUqyTrq2tF4z06wWDyBJjzrRS_UpyUL0M&origin=Vanara+Resort+Spa+Jl+Batu+Nunggalan+Pecatu+Bali&destination=CV+Santhi+Jl+Raya+Kuta+No+123+Kuta+Bali&mode=driving">
         </iframe>
       </div>
       <div class="timeline">
         <div class="block">
-          <div class="block-time"><span>10:00 am</span></div>
+          <div class="block-time"><span>10:30 am</span></div>
           <div class="block-axis"><div class="dot green"></div><div class="connector"></div></div>
           <div class="block-content">
             <div class="block-tag tag-green">Shopping</div>
-            <div class="block-title">CV Wiras · Textiles & Custom Garments</div>
-            <div class="block-desc">~30 min drive from Vanara to Kuta. Namira brings Susan to browse textiles and order custom garments. CV Wiras is on Jl. Raya Kuta — a garment and textile workshop that ships internationally. Call ahead to confirm they're open and available for custom orders.</div>
+            <div class="block-title">CV. Santhi · Textiles & Custom Garments</div>
+            <div class="block-desc">~30 min drive from Vanara to Kuta. Browse textiles and order custom garments. <strong>Opens at 11:00 am</strong> — Sep 19 is a Saturday so they're open, but leave a little later so you're not waiting at the door. Confirm the visit ahead of time and flag what you want made.</div>
             <div class="chips">
-              <span class="chip"><a class="map-link" href="https://maps.google.com/?q=CV+Wiras+Jl+Raya+Kuta+Bali" target="_blank">📍 CV Wiras · Jl. Raya Kuta, Kuta, Bali</a></span>
-              <span class="chip">📞 +62 361 751727 · +62 361 751737</span>
-              <span class="chip">🧵 Textiles · custom garments · ships internationally</span>
-              <span class="chip">📞 Call ahead to confirm</span>
+              <span class="chip"><a class="map-link" href="https://maps.google.com/?q=CV+Santhi+Jl+Raya+Kuta+No+123+Kuta+Bali" target="_blank">📍 Jl. Raya Kuta No. 123, Kuta, Badung</a></span>
+              <span class="chip">🕐 11:00 am – 6:00 pm · closed Mondays</span>
+              <span class="chip">📞 +62 361 753719</span>
+              <span class="chip">🧵 Textiles · custom garments</span>
             </div>
           </div>
         </div>
@@ -932,7 +942,7 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
           <div class="block-content">
             <div class="block-tag tag-red">★ Cultural Show</div>
             <div class="block-title">Keraton Yogyakarta · Grounds &amp; Performance</div>
-            <div class="block-desc">Explore the grounds and pavilions first, then the morning performance. Shaded pavilions are great for Tim and Susan. Sura in the carrier. <strong>Verify Tuesday's program at kratonjogja.id</strong> — the schedule rotates by day and the Wayang Golek show is the Wednesday slot.</div>
+            <div class="block-desc">Explore the grounds and pavilions first, then the morning performance. Plenty of shaded pavilions to sit in. Sura in the carrier. <strong>Verify Tuesday's program at kratonjogja.id</strong> — the schedule rotates by day and the Wayang Golek show is the Wednesday slot.</div>
             <div class="chips">
               <span class="chip"><a class="map-link" href="https://maps.google.com/?q=Keraton+Yogyakarta" target="_blank">📍 Keraton Yogyakarta</a></span>
               <span class="chip">🎭 Performance ~10:00–11:00 am</span>
@@ -961,11 +971,10 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
           <div class="block-content">
             <div class="block-tag tag-food">Lunch &amp; Coffee</div>
             <div class="block-title">Kopi Pak Pos · Nol Kilometer</div>
-            <div class="block-desc">Vintage Dutch-colonial post office building right at Zero Kilometer. Lunch and coffee in one stop. Gets busy at midday — send someone ahead for a table if the group is fading. Driver drops at Nol Km and parks; pickup for Tim afterwards on Jl. Senopati, outside the pedestrian zone.</div>
+            <div class="block-desc">Vintage Dutch-colonial post office building right at Zero Kilometer. Lunch and coffee in one stop. Gets busy at midday — send someone ahead for a table if the group is fading. Driver drops at Nol Km and parks; there's no waiting at the door, so agree a pickup point on Jl. Senopati, outside the pedestrian zone.</div>
             <div class="chips">
               <span class="chip"><a class="map-link" href="https://maps.google.com/?q=Kopi+Pakpos+Titik+Nol+Yogyakarta" target="_blank">📍 Zero Kilometer, Yogyakarta</a></span>
               <span class="chip">🚗 No parking at the door — pedestrian zone</span>
-              <span class="chip">🛋 Tim rests in the van after lunch</span>
             </div>
           </div>
         </div>
@@ -989,7 +998,7 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
           <div class="block-content">
             <div class="block-tag tag-blue">Depart</div>
             <div class="block-title">Drive to Borobudur · 75–90 min</div>
-            <div class="block-desc">Budget 75–90 minutes rather than the optimistic 50 — Garrya Bianti is on the east side and Borobudur is northwest, so you cross the city. Confirm the estimate with the driver. Tim and Susan can rest on the way.</div>
+            <div class="block-desc">Budget 75–90 minutes rather than the optimistic 50 — Garrya Bianti is on the east side and Borobudur is northwest, so you cross the city. Confirm the estimate with the driver — it's a good stretch to rest on.</div>
             <div class="chips"><span class="chip">⏱ Arrive ~3:30 pm · 30 min buffer</span></div>
           </div>
         </div>
@@ -1046,9 +1055,9 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
       </div>
 
       <div class="day-map-wrap">
-        <div class="day-map-label">Day 3 Journey · Sewon → Kotagede → Adisucipto → Prambanan → Abhayagiri</div>
+        <div class="day-map-label">Day 3 Journey · Sewon → Kotagede → Adisucipto → Prambanan → Wanawatu</div>
         <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCUqyTrq2tF4z06wWDyBJjzrRS_UpyUL0M&origin=Garrya+Bianti+Yogyakarta&destination=Abhayagiri+Restaurant+Sumberwatu+Prambanan&waypoints=Pengrajin+Gamelan+Nuswantara+Sewon+Bantul|HS+Silver+Jl+Mondorakan+Kotagede+Yogyakarta|Adisutjipto+Airport+Yogyakarta|Prambanan+Temple&mode=driving">
+          src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyCUqyTrq2tF4z06wWDyBJjzrRS_UpyUL0M&origin=Garrya+Bianti+Yogyakarta&destination=WANAWATU+Sumberwatu+Sambirejo+Prambanan&waypoints=Pengrajin+Gamelan+Nuswantara+Sewon+Bantul|HS+Silver+Jl+Mondorakan+Kotagede+Yogyakarta|Adisutjipto+Airport+Yogyakarta|Prambanan+Temple&mode=driving">
         </iframe>
       </div>
 
@@ -1059,27 +1068,28 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
           <div class="block-content">
             <div class="block-tag tag-warm">Namira · Solo</div>
             <div class="block-title">Day Trip to Jakarta · JOG ↔ HLP</div>
-            <div class="block-desc">Leave Garrya Bianti ~4:15 am — check-in closes 90 min before the 6:00 departure and Adisucipto is ~15 min away. Both legs use JOG Adisucipto, so the return puts her 20 minutes from Prambanan. The group runs the morning without her, then swings by Adisucipto to collect her on the way to Prambanan.</div>
+            <div class="block-desc">Leave Garrya Bianti ~4:15 am — check-in closes 90 min before the 6:00 departure and Adisucipto is ~15 min away. Both legs use JOG Adisucipto, so the return puts her 20 minutes from Prambanan. The group keeps the Hiace all day and goes straight to Prambanan; Namira takes a Grab or Gojek from the airport and meets them inside. Book the ride while still taxiing so a driver is assigned on landing — Adisucipto uses designated app pickup zones rather than curbside, so allow ~5 min to walk to the meeting point.</div>
             <div class="chips">
               <span class="chip">✈ FlyJaya KS-101 · JOG 06:00 → HLP 07:25 · PNR SXLXMC</span>
               <span class="chip">✈ Citilink QG-1104 · HLP 13:40 → JOG 15:05 · PNR WMQGXX</span>
               <span class="chip">🕐 Check-in 90 min before both legs</span>
               <span class="chip">🧳 Cabin only · 7 kg</span>
               <span class="chip">📋 Traveloka booking 1389409886</span>
+              <span class="chip">🛺 Grab/Gojek JOG → Prambanan · ~IDR 60–80K · 20 min</span>
             </div>
           </div>
         </div>
         <div class="block">
-          <div class="block-time"><span>10:30 am</span></div>
+          <div class="block-time"><span>10:00 am</span></div>
           <div class="block-axis"><div class="dot blue"></div><div class="connector"></div></div>
           <div class="block-content">
             <div class="block-tag tag-blue">Depart</div>
-            <div class="block-title">Group Leaves Garrya Bianti</div>
-            <div class="block-desc">Slow morning at the hotel first — pool for Kai, unhurried breakfast. ~40 min south to Sewon.</div>
+            <div class="block-title">Breakfast, then Leave Garrya Bianti</div>
+            <div class="block-desc">Unhurried breakfast at the hotel from ~9:00, pool time for Kai, then out by 10:00. ~40 min south to Sewon. T.K. leads the day — Namira is in Jakarta until mid-afternoon.</div>
           </div>
         </div>
         <div class="block">
-          <div class="block-time"><span>11:15 am</span></div>
+          <div class="block-time"><span>10:45 am</span></div>
           <div class="block-axis"><div class="dot green"></div><div class="connector"></div></div>
           <div class="block-content">
             <div class="block-tag tag-green">★ For T.K.</div>
@@ -1093,17 +1103,22 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
           </div>
         </div>
         <div class="block">
-          <div class="block-time"><span>12:30 pm</span></div>
+          <div class="block-time"><span>12:00 pm</span></div>
           <div class="block-axis"><div class="dot"></div><div class="connector"></div></div>
           <div class="block-content">
             <div class="block-tag tag-food">Lunch</div>
-            <div class="block-title">Lunch En Route · Sewon → Kotagede</div>
-            <div class="block-desc">~25 min between the two stops. Pick something on the way — ask the driver for a clean, sit-down warung, or Jalan Wijilan gudeg if you want the classic Jogja dish.</div>
-            <div class="chips"><span class="chip"><a class="map-link" href="https://maps.google.com/?q=Jalan+Wijilan+Gudeg+Yogyakarta" target="_blank">📍 Option: Jalan Wijilan gudeg</a></span></div>
+            <div class="block-title">Paddys Delight Coffee &amp; Space · Tamanan</div>
+            <div class="block-desc">Modern café on the Sewon → Kotagede route. Striking nest-like wooden facade, bamboo ceilings, spacious and full of natural light, with seating overlooking green fields. Proper food menu alongside the coffee, so it's quicker than a sit-down restaurant. Call ahead to confirm an indoor air-conditioned area — it's built around the field views and may be open-sided.</div>
+            <div class="chips">
+              <span class="chip"><a class="map-link" href="https://maps.google.com/?q=Paddys+Delight+Coffee+and+Space+Tamanan+Banguntapan" target="_blank">📍 Tamanan, Banguntapan</a></span>
+              <span class="chip">🕐 9:00 am – 11:00 pm</span>
+              <span class="chip">📞 +62 812-1261-9311</span>
+              <span class="chip">☕ Backup: Bumi Seduh Coffee — AC hall, high chairs, Western toilets</span>
+            </div>
           </div>
         </div>
         <div class="block">
-          <div class="block-time"><span>1:45 pm</span></div>
+          <div class="block-time"><span>1:15 pm</span></div>
           <div class="block-axis"><div class="dot red"></div><div class="connector"></div></div>
           <div class="block-content">
             <div class="block-tag tag-gold">★ Susan's Birthday Jewelry</div>
@@ -1114,21 +1129,24 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
               <span class="chip">🕐 9:00 am – 5:00 pm daily</span>
               <span class="chip">📞 +62 274 375107</span>
               <span class="chip">💍 Workshop viewing · 4.7 ★</span>
-              <span class="chip">⏱ Leave by 2:45 pm for the airport run</span>
+              <span class="chip">⏱ Leave by 2:35 pm to reach Prambanan for 3:00</span>
             </div>
           </div>
         </div>
         <div class="block">
-          <div class="block-time"><span>3:05 pm</span></div>
-          <div class="block-axis"><div class="dot blue"></div><div class="connector"></div></div>
+          <div class="block-time"><span>3:00 pm</span></div>
+          <div class="block-axis"><div class="dot red"></div><div class="connector"></div></div>
           <div class="block-content">
-            <div class="block-tag tag-blue">Pickup</div>
-            <div class="block-title">Collect Namira · Adisucipto Terminal A</div>
-            <div class="block-desc">QG-1104 lands 15:05. Cabin bag only, so she should be curbside by ~15:20 — then ~20 min on to Prambanan. If the flight slips, the group starts Prambanan without her and she joins.</div>
+            <div class="block-tag tag-gold">★ Prambanan · T.K. leads</div>
+            <div class="block-title">Group Enters Prambanan · Lara Jonggrang First</div>
+            <div class="block-desc">Go in without waiting — Namira lands at 3:05 and follows by Grab. Tickets are already bought online, so walk straight past the counter.</div>
+            <div class="block-desc"><strong>T.K. — hire the guide at the main entrance:</strong> official PT Taman Wisata Candi guides wear an ID badge and quote a fixed rate. Ignore anyone who approaches in the parking lot. Tell them upfront, not partway through: <em>"We'd like about 45 minutes here on Lara Jonggrang — the Trimurti towers and the Ramayana reliefs — then the buggy to Candi Sewu at 3:45 when one more person joins us. Can you confirm the last buggy back?"</em> Saying it at hire lets them shape the hour around it; redirecting mid-visit loses the light.</div>
             <div class="chips">
-              <span class="chip"><a class="map-link" href="https://maps.google.com/?q=Adisutjipto+International+Airport+Yogyakarta" target="_blank">📍 Adisucipto (JOG) · Terminal A</a></span>
-              <span class="chip">🛬 Lands 15:05 · curbside ~15:20</span>
-              <span class="chip">⏱ JOG → Prambanan ~20 min</span>
+              <span class="chip"><a class="map-link" href="https://maps.google.com/?q=Prambanan+Temple+Yogyakarta" target="_blank">📍 Prambanan Temple Complex</a></span>
+              <span class="chip">🎟 Buy online ahead — a counter queue could cost the visit</span>
+              <span class="chip">IDR 400K: T.K., Tim, Susan · IDR 225K: Kai · Sura free</span>
+              <span class="chip">🗣 Guide IDR 150–250K/hr · +50–100K for Sewu</span>
+              <span class="chip">🧳 Stroller-friendly outer grounds</span>
             </div>
           </div>
         </div>
@@ -1136,18 +1154,15 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
           <div class="block-time"><span>3:45 pm</span></div>
           <div class="block-axis"><div class="dot red"></div><div class="connector"></div></div>
           <div class="block-content">
-            <div class="block-tag tag-gold">★ Prambanan Temple</div>
-            <div class="block-title">Prambanan · Late Afternoon</div>
-            <div class="block-desc">Indonesia's largest Hindu temple complex — the three towering spires of Brahma, Vishnu, and Shiva. Best light of the day and cooler than midday. Last entry is around 16:30 (some sources say 16:00), so buy tickets online in advance and walk straight in.</div>
-            <div class="block-desc"><strong>Guide request — say this at the gate, not partway through:</strong> hire a registered guide at the main entrance (official PT Taman Wisata Candi guides wear an ID badge and quote a fixed rate — ignore anyone who approaches in the parking lot). Ask to go to <strong>Candi Sewu</strong> first, by buggy — it's ~800m north, included on the same ticket, and the second-largest Buddhist temple complex in Indonesia after Borobudur. It's the part with the closing risk, so do it while the buggy is definitely still running; confirm the last run when you hire. Then work back to the Lara Jonggrang core by the entrance — the three Trimurti towers and the Ramayana reliefs — and stretch or compress that to whatever time is left before the 5:00 pm clearance.</div>
+            <div class="block-tag tag-gold">★ Candi Sewu</div>
+            <div class="block-title">Namira Joins · Buggy to Sewu</div>
+            <div class="block-desc"><strong>Aim to be on the buggy by 3:45, 4:00 at the very latest.</strong> Sewu is ~800m north and the second-largest Buddhist temple complex in Indonesia after Borobudur, included on the same ticket. It's the part with the closing risk, so go while the buggy is definitely still running — walking back in fading light would be rough at the end of the day.</div>
+            <div class="block-desc">If Namira's flight slips, don't wait past 4:00 — go to Sewu and she'll catch up there. Grounds clear at 5:00 pm, so head back toward the entrance around 4:45.</div>
             <div class="chips">
-              <span class="chip"><a class="map-link" href="https://maps.google.com/?q=Prambanan+Temple+Yogyakarta" target="_blank">📍 Prambanan Temple Complex</a></span>
-              <span class="chip">🎟 Buy online ahead — a counter queue could cost the visit</span>
-              <span class="chip">IDR 400K: T.K., Tim, Susan · IDR 225K: Kai · Sura free</span>
-              <span class="chip">🚌 Sewu first by buggy — confirm last run</span>
-              <span class="chip">🗣 Guide IDR 150–250K/hr · +50–100K for Sewu</span>
-              <span class="chip">☸ Sewu · 2nd-largest Buddhist complex in Indonesia</span>
-              <span class="chip">🧳 Stroller-friendly outer grounds</span>
+              <span class="chip">🚌 Sewu by buggy — confirm last run at hire</span>
+              <span class="chip">☸ 2nd-largest Buddhist complex in Indonesia</span>
+              <span class="chip">⏱ On the buggy by 3:45 · hard cutoff 4:00</span>
+              <span class="chip">🕐 Grounds clear 5:00 pm</span>
             </div>
           </div>
         </div>
@@ -1156,12 +1171,13 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
           <div class="block-axis"><div class="dot"></div><div class="connector" style="min-height:0;height:0"></div></div>
           <div class="block-content">
             <div class="block-tag tag-food">★ Sunset Dinner</div>
-            <div class="block-title">Abhayagiri · Sumberwatu Heritage Resort</div>
-            <div class="block-desc">5-minute drive uphill from Prambanan. Panoramic views of the temple spires and Mount Merapi at golden hour — a perfect family moment. Indonesian and international menu. Reserve a family table with a view in advance.</div>
+            <div class="block-title">Wanawatu · Sumberwatu Ridge</div>
+            <div class="block-desc">5-minute drive uphill from Prambanan, on the same ridge. Views over the temple spires and Mount Merapi at golden hour — sunset lands around 5:40–5:45 pm. Indoor and outdoor seating; the Indonesian dishes are the safer order. <strong>Booking is required in advance via their website</strong>, with a non-refundable IDR 100,000 deposit per adult and per child 6 and over, which counts toward the bill. Kai and Sura are under 6, so that's 4 deposits. Slots fill days ahead, so book early.</div>
             <div class="chips">
-              <span class="chip"><a class="map-link" href="https://maps.google.com/?q=Abhayagiri+Restaurant+Sumberwatu+Prambanan" target="_blank">📍 Abhayagiri, Sumberwatu</a></span>
-              <span class="chip">🌅 Sunset over Prambanan + Merapi</span>
-              <span class="chip">📞 Reserve: ask for view + family table</span>
+              <span class="chip"><a class="map-link" href="https://maps.google.com/?q=WANAWATU+Sumberwatu+Sambirejo+Prambanan" target="_blank">📍 Jl. Perang, Sumberwatu, Sambirejo</a></span>
+              <span class="chip">🌅 Sunset ~5:40 pm over Prambanan + Merapi</span>
+              <span class="chip">⚠ Book ahead · IDR 100K deposit × 4 adults</span>
+              <span class="chip">📞 +62 851-7339-3002</span>
               <span class="chip">🕐 Open until 21:00</span>
             </div>
           </div>
@@ -1234,8 +1250,8 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
       <div class="check-item" onclick="toggleCheck(this)">
         <div class="check-box"></div>
         <div class="check-text">
-          <div class="check-title">Abhayagiri Dinner Reservation</div>
-          <div class="check-note">Call/WhatsApp for Sep 23 evening. Ask for view table, family-friendly seating. Open until 9pm.</div>
+          <div class="check-title">Wanawatu Dinner Reservation</div>
+          <div class="check-note">Book via their website well ahead — dinner slots fill days in advance. Non-refundable IDR 100,000 deposit per adult and per child 6+, counting toward the bill; Kai and Sura are under 6, so 4 deposits. Sep 23 evening, party of 6, ask for a view table.</div>
         </div>
       </div>
       <div class="check-item" onclick="toggleCheck(this)">
@@ -1289,7 +1305,7 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
         <div class="budget-row"><div class="budget-row-label">Prambanan Tickets<small>T.K. IDR 400K · Kai IDR 225K · Sura free</small></div><div class="budget-row-amount">~$35</div></div>
         <div class="budget-row"><div class="budget-row-label">Keraton + Sonobudoyo<small>Entry + shop purchases est.</small></div><div class="budget-row-amount">~$34</div></div>
         <div class="budget-row"><div class="budget-row-label">Temple Guide · Prambanan<small>IDR 150K</small></div><div class="budget-row-amount">~$8</div></div>
-        <div class="budget-row"><div class="budget-row-label">Meals · 4 days<small>Gudeg, Pakpos, Abhayagiri, hotel</small></div><div class="budget-row-amount">~$180</div></div>
+        <div class="budget-row"><div class="budget-row-label">Meals · 4 days<small>Pakpos, Paddys, Wanawatu, hotel</small></div><div class="budget-row-amount">~$180</div></div>
         <div class="budget-row"><div class="budget-row-label">Shopping est.<small>Hamzah, Beringharjo — budget extra buffer</small></div><div class="budget-row-amount">~$100</div></div>
         <div class="budget-row"><div class="budget-row-label">Silver · HS Silver, Kotagede<small>Susan’s birthday jewelry</small></div><div class="budget-row-amount">~$60</div></div>
         <div class="budget-row"><div class="budget-row-label">Buggies + misc<small>Prambanan, tips, incidentals</small></div><div class="budget-row-amount">~$25</div></div>
@@ -2255,7 +2271,7 @@ a.map-link:hover { color:var(--gold-light); border-bottom-color:var(--gold-light
           </div>
         </div>
         <div class="block">
-          <div class="block-time"><span>10:30 am</span></div>
+          <div class="block-time"><span>10:00 am</span></div>
           <div class="block-axis"><div class="dot green"></div><div class="connector"></div></div>
           <div class="block-content">
             <div class="block-tag tag-green">✓ Booked</div>
@@ -2482,9 +2498,47 @@ function toggleNav() {
   document.getElementById('nav-overlay').classList.toggle('open');
 }
 
+function initDayCollapse() {
+  document.querySelectorAll('.day').forEach(day => {
+    const header = day.querySelector('.day-header');
+    if (!header || header.dataset.collapseReady) return;
+    header.dataset.collapseReady = '1';
+    const chev = document.createElement('span');
+    chev.className = 'day-chevron';
+    chev.textContent = '\u25BC';
+    header.appendChild(chev);
+    header.addEventListener('click', e => {
+      if (e.target.closest('a')) return;
+      day.classList.toggle('collapsed');
+    });
+  });
+  document.querySelectorAll('.page').forEach(page => {
+    if (page.querySelector('.day-toolbar')) return;
+    const firstDay = page.querySelector('.day');
+    if (!firstDay) return;
+    const bar = document.createElement('div');
+    bar.className = 'day-toolbar';
+    const collapse = document.createElement('button');
+    collapse.textContent = 'Collapse all';
+    const expand = document.createElement('button');
+    expand.textContent = 'Expand all';
+    collapse.addEventListener('click', () => {
+      page.querySelectorAll('.day').forEach(d => d.classList.add('collapsed'));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    expand.addEventListener('click', () => {
+      page.querySelectorAll('.day').forEach(d => d.classList.remove('collapsed'));
+    });
+    bar.appendChild(collapse);
+    bar.appendChild(expand);
+    firstDay.parentNode.insertBefore(bar, firstDay);
+  });
+}
+
 const savedPage = localStorage.getItem('activePage') || 'jogja';
 showPage(savedPage);
 loadCheckState();
+initDayCollapse();
 </script>
 </body>
 </html>
